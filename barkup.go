@@ -64,6 +64,11 @@ func (x *ExportResult) To(directory string, store Storer) *Error {
 		return storeErr
 	}
 
+	return makeErr(nil, "")
+}
+
+// Clear tmp files
+func (x *ExportResult) Clear() *Error {
 	err := os.Remove(x.Path)
 	return makeErr(err, "")
 }
