@@ -49,7 +49,8 @@ type ExportResult struct {
 	// MIME type of the exported file (e.g. application/x-tar)
 	MIME string
 	// Any error that occured during `Export()`
-	Error *Error
+	Error         *Error
+	ClearTmpFiles bool
 }
 
 // To hands off an ExportResult to a `Storer` interface and invokes its Store() method. The directory argument is passed along too. If `store` is `nil`, the the method will simply move the export result to the specified directory (via the `mv` command)
